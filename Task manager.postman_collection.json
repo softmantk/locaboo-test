@@ -1,0 +1,340 @@
+{
+	"info": {
+		"_postman_id": "d1636def-dd9b-4e58-aff7-e67affc9ad68",
+		"name": "Task manager",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11725624",
+		"_collection_link": "https://universal-meadow-439910.postman.co/workspace/Manual-handling~16af8ea4-c2d4-448b-bb1d-c2502c4130f5/collection/11725624-d1636def-dd9b-4e58-aff7-e67affc9ad68?action=share&source=collection_link&creator=11725624"
+	},
+	"item": [
+		{
+			"name": "tasks",
+			"item": [
+				{
+					"name": "create task",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\":\"task 1\",\n    \"description\":\"do something\",\n    \"priority\":\"high\"\n    ,\"status\":\"inProgress\"\n    //, \"assigneeId\":1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{taskManagerBaseUrl}}/tasks",
+							"host": [
+								"{{taskManagerBaseUrl}}"
+							],
+							"path": [
+								"tasks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all tasks",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\":\"title1\",\n    \"description\":\"description 2\",\n    \"priority\":\"low\"\n    ,\"status\":\"todo\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{taskManagerBaseUrl}}/tasks/",
+							"host": [
+								"{{taskManagerBaseUrl}}"
+							],
+							"path": [
+								"tasks",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get task by id with fitlers",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{taskManagerBaseUrl}}/tasks?sortBy=title&limit=20&page=1&sortOrder=asc",
+							"host": [
+								"{{taskManagerBaseUrl}}"
+							],
+							"path": [
+								"tasks"
+							],
+							"query": [
+								{
+									"key": "sortBy",
+									"value": "title"
+								},
+								{
+									"key": "limit",
+									"value": "20"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "sortOrder",
+									"value": "asc"
+								},
+								{
+									"key": "status",
+									"value": "inProgress",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get task by id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    // \"id\":1\n    \"priority\": \"low\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{taskManagerBaseUrl}}/tasks/1",
+							"host": [
+								"{{taskManagerBaseUrl}}"
+							],
+							"path": [
+								"tasks",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete task by id",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{taskManagerBaseUrl}}/tasks/43",
+							"host": [
+								"{{taskManagerBaseUrl}}"
+							],
+							"path": [
+								"tasks",
+								"43"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "assign task to user",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{taskManagerBaseUrl}}/tasks/40/assign-task/4",
+							"host": [
+								"{{taskManagerBaseUrl}}"
+							],
+							"path": [
+								"tasks",
+								"40",
+								"assign-task",
+								"4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "create user",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\":\"nikhilc@gmail.com\",\n    \"firstName\":\"nik\",\n    \"lastName\":\"hil\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{taskManagerBaseUrl}}/users",
+							"host": [
+								"{{taskManagerBaseUrl}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get users",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{taskManagerBaseUrl}}/users",
+							"host": [
+								"{{taskManagerBaseUrl}}"
+							],
+							"path": [
+								"users"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "nikhil@gmail.com",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update user",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\":\"11\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{taskManagerBaseUrl}}/users/4",
+							"host": [
+								"{{taskManagerBaseUrl}}"
+							],
+							"path": [
+								"users",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get user by id",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{taskManagerBaseUrl}}/users/1",
+							"host": [
+								"{{taskManagerBaseUrl}}"
+							],
+							"path": [
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "taskManagerBaseUrl",
+			"value": ""
+		}
+	]
+}

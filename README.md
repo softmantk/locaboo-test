@@ -1,4 +1,4 @@
-# Task Manager (NestJS Clean Architecture)
+# Task Manager
 
 A modular Task Manager backend built with NestJS, following a Feature-Based Clean Architecture.
 It demonstrates how to separate business rules, use cases, and framework concerns for maintainability and scalability.
@@ -83,7 +83,7 @@ http://localhost:4001
 
 ---
 
-## Folder Structure (important directories only)
+## Folder Structure
 
 ```
 src/
@@ -170,7 +170,12 @@ throw new TaskCannotBeDeleted('Task is in progress', { taskId });
 ## API Documentation
 
 A Postman collection is provided for testing.
+
+[Task manager.postman_collection.json](Task%20manager.postman_collection.json)
+
 Copy the collection file to your local Postman.
+
+Remember to set taskManagerBaseUrl ![Screenshot 2025-11-10 at 11.39.54.png](docs/postman-screenshot.png)
 > Swagger documentation is not included due to time constraints.
 
 ---
@@ -182,16 +187,12 @@ Copy the collection file to your local Postman.
 npm run start:dev
 ```
 
-### Production
-```
-npm run start:prod
-```
-
 ### Tests
+
+Currently test only covered for tasks domain [tasks.entity.spec.ts](src/modules/tasks/domain/tasks.entity.spec.ts)
+
 ```
 npm run test
-npm run test:e2e
-npm run test:cov
 ```
 
 ---
